@@ -2,6 +2,7 @@ package com.zerobase.fastlms.admin.service;
 
 import com.zerobase.fastlms.admin.dto.CategoryDto;
 import com.zerobase.fastlms.admin.entity.Category;
+import com.zerobase.fastlms.admin.model.CategoryInput;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public interface CategoryService {
     /**
      * 카테고리 수정
      */
-    boolean update(CategoryDto parameter);
+    boolean update(CategoryInput parameter);
 
     /**
      * 카테고리 삭제
