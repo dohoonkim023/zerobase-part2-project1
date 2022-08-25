@@ -206,4 +206,9 @@ public class CourseServiceImpl implements CourseService{
         return result;
     }
 
+    @Override
+    public List<CourseDto> listAll() {
+        return null;
+    }
+
 }
