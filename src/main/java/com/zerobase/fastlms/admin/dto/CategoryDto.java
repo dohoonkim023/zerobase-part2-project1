@@ -18,11 +18,13 @@ import java.util.List;
 public class CategoryDto {
 
     private Long id;
-
     String categoryName;
     int sortValue;
-
     boolean usingYn;
+
+    //추가 컬럼
+    int courseCount;
+
 
     public static List<CategoryDto> of(List<Category> categories) {
         if (categories != null) {
