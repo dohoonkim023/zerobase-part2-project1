@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    Long id;
 
     long categoryId;
 
@@ -34,7 +34,11 @@ public class Course {
     long salePrice;
     LocalDate saleEndDt;
 
-    LocalDateTime regDt; //등록일(추가날짜)
-    LocalDateTime udtDt; //수정일(수정날짜)
+    LocalDateTime regDt;//등록일(추가날짜)
+    LocalDateTime udtDt;//수정일(수정날짜)
+
+
+    String filename;
+    String urlFilename;
 
 }
