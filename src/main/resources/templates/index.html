@@ -3,14 +3,65 @@
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
+
+
+
     </head>
     <body>
         <h1> 메인 페이지</h1>
         <div th:replace="/fragments/layout.html :: frament-body-menu"></div>
 
-        <div>
-            <img src="/files/2022/08/26/5b86c42bfd2d417f8ab92040fcd25763.png"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+
+
+        <script>
+            function openWindowPop(url){
+                var name = 'gg'
+                var options = 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no';
+                window.open(url, name, options);
+            }
+
+
+            $(document).ready(function(){
+                $(function(){
+                    $('.bxslider').bxSlider({
+                        // auto: true,
+                        // pause: 2000,
+                        // mode: 'fade',
+                        // captions: true,
+                        touchEnabled : false,
+                        slideWidth: 600
+                    });
+                });
+            });
+        </script>
+
+        <div class="home__slider">
+            <div class="bxslider">
+<!--                <div>-->
+<!--                    <a href="#"><img src="https://bxslider.com/assets/images/plant.jpg"> </a>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <a href="#"><img src="https://bxslider.com/assets/images/daisies.jpg"> </a>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <a href="#"><img src="https://bxslider.com/assets/images/succulents.jpg"> </a>-->
+<!--                </div>-->
+                <div th:each="x : ${bannerList}">
+                    <div class="x">
+                        <a th:if="${x.openMethod eq 'NEW_WINDOW'}" th:href="${x.link}" onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false; "><img  th:src="${x.urlFilename}"> </a>
+                        <a th:if="${x.openMethod eq 'THIS_WINDOW'}" th:href="${x.link}" ><img th:src="${x.urlFilename}"> </a>
+                    </div>
+                </div>
         </div>
+
+
+
+
+
 
     </body>
 </html>
