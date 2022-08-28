@@ -41,6 +41,7 @@ public class MemberDto {
     //추가컬럼
     long totalCount;
     long seq;
+    LocalDateTime loginDt;
 
     public static MemberDto of(Member member) {
         return MemberDto.builder()

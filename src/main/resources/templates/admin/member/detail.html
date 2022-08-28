@@ -1,9 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8">
         <title>관리자 회원 관리</title>
         <style>
+        .list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .list table th, .list table td {
+            border: solid 1px #000;
+        }
+        .list table th {
+            color: white;
+            background-color: black;
+            font-weight: normal;
+
+        }
+
+        .list table tr:nth-child(odd) {
+            background-color: rgb(202 202 202);
+
+        }
+        .list table tr:nth-child(even) {
+            background-color: rgb(230 230 230);
+        }
+
+
+
         .detail table {
             width: 100%;
             border-collapse: collapse;
@@ -96,8 +120,35 @@
             </table>
 
         </div>
-
         <a href="list.do"> 목록</a>
+
+        </br>
+        </br>
+        <div class="list">
+            <table>
+                <thead>
+                <tr>
+                    <th>NO</th>
+                    <th>로그인 일자</th>
+                    <th>접속 IP</th>
+                    <th>접속 UserAgent</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="x : ${list}">
+                    <td th:text="${x.seq}">1</td>
+                    <td th:text="${x.getLoginDtText}">김도훈</td>
+                    <td th:text="${x.ip}">010-1111-2222</td>
+                    <td th:text="${x.userAgent}">010-1111-2222</td>
+
+                </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+
 
     </body>
 </html>

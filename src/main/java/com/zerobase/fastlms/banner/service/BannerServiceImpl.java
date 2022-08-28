@@ -111,6 +111,7 @@ public class BannerServiceImpl implements BannerService {
         List<BannerDto> list = bannerMapper.selectList(parameter);
         if (!CollectionUtils.isEmpty(list)) {
             int i = 0;
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
             for (BannerDto x : list) {
                 x.setTotalCount(totalCount);
                 x.setSeq(totalCount - parameter.getPageStart() - i);

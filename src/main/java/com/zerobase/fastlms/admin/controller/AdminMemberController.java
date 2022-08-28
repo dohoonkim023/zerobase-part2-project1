@@ -6,6 +6,8 @@ import com.zerobase.fastlms.admin.model.MemberInput;
 import com.zerobase.fastlms.admin.model.MemberParam;
 import com.zerobase.fastlms.admin.model.MemberStatusInput;
 import com.zerobase.fastlms.course.controller.BaseController;
+import com.zerobase.fastlms.main.dto.LoginHistoryDto;
+import com.zerobase.fastlms.main.service.LoginHistoryService;
 import com.zerobase.fastlms.member.entity.Member;
 import com.zerobase.fastlms.member.service.MemberService;
 import com.zerobase.fastlms.util.PageUtil;
@@ -23,6 +25,7 @@ import java.util.List;
 public class AdminMemberController extends BaseController {
 
     private final MemberService memberService;
+    private final LoginHistoryService loginHistoryService;
 
     @GetMapping("/admin/member/list.do")
     public String list(Model model, MemberParam parameter) {
@@ -56,6 +59,10 @@ public class AdminMemberController extends BaseController {
 
         MemberDto member = memberService.detail(parameter.getUserId());
         model.addAttribute("member", member);
+
+        List<LoginHistoryDto> loginHistory = loginHistoryService.list(parameter.getUserId());
+        model.addAttribute("list", loginHistory);
+
 
         return "admin/member/detail";
     }
