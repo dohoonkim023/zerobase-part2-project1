@@ -131,7 +131,8 @@
                     </td>
                     <td>
                         <p>
-                            <img th:src="${x.urlFilename}" th:width="200" />
+                            <img th:if="${x.urlFilename != ''}" th:src="${x.urlFilename}" th:width="200" />
+                            <p th:if="${x.urlFilename == ''}" th:text="${x.bannerName}"></p>
                         </p>
                     </td>
                     <td>

@@ -141,7 +141,7 @@ public class AdminBannerController extends BaseController {
         String saveFilename = "";
         String urlFilename = "";
 
-        if (file != null ) {
+        if (!file.isEmpty() ) {
             String originalFilename = file.getOriginalFilename();
 
             String baseLocalPath = "/Users/dohoon/Documents/zerobase_part2/zerobase_project1/fastlms/files/";
@@ -163,6 +163,8 @@ public class AdminBannerController extends BaseController {
 
         parameter.setFilename(saveFilename);
         parameter.setUrlFilename(urlFilename);
+
+
 
         boolean editMode = request.getRequestURI().contains("/edit.do");
 

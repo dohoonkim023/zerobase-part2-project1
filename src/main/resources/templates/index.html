@@ -52,8 +52,14 @@
 <!--                </div>-->
                 <div th:each="x : ${bannerList}">
                     <div class="x">
-                        <a th:if="${x.openMethod eq 'NEW_WINDOW'}" th:href="${x.link}" onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false; "><img  th:src="${x.urlFilename}"> </a>
-                        <a th:if="${x.openMethod eq 'THIS_WINDOW'}" th:href="${x.link}" ><img th:src="${x.urlFilename}"> </a>
+                        <a th:if="${x.openMethod eq 'NEW_WINDOW'}" th:href="${x.link}" onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false; ">
+                            <img th:if="${x.urlFilename != ''}" th:src="${x.urlFilename}">
+                            <p th:if="${x.urlFilename == ''}" th:text="${x.bannerName}"></p>
+                        </a>
+                        <a th:if="${x.openMethod eq 'THIS_WINDOW'}" th:href="${x.link}" >
+                            <img th:if="${x.urlFilename != ''}" th:src="${x.urlFilename}">
+                            <p th:if="${x.urlFilename == ''}" th:text="${x.bannerName}"></p>
+                        </a>
                     </div>
                 </div>
         </div>
